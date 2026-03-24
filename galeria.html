@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Rincón del Tapeo | Galería</title>
+  <meta name="description" content="Galería de tapas, raciones, bebidas y ambiente de El Rincón del Tapeo.">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/main.js"></script>
+  <script defer src="js/galeria.js"></script>
+</head>
+<body>
+
+  <!-- Cabecera principal -->
+  <header class="header">
+    <div class="contenedor barra-superior">
+      <div class="logo">
+        <a href="index.html">El Rincón del Tapeo</a>
+      </div>
+
+      <nav class="navegacion">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="galeria.html">Galería</a></li>
+          <li><a href="presupuesto.html">Presupuesto</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Encabezado de página -->
+    <section class="hero hero-secundario">
+      <div class="contenedor hero-contenido">
+        <p class="subtitulo">Nuestra selección</p>
+        <h1>Galería de sabores y ambiente</h1>
+        <p>
+          Descubre algunas de nuestras tapas, bebidas y rincones favoritos del local.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filtros de galería -->
+    <section class="seccion">
+      <div class="contenedor">
+        <h2>Explora nuestra galería</h2>
+
+        <div class="filtros-galeria">
+          <button class="boton-filtro activo" data-filtro="todos" type="button">Todos</button>
+          <button class="boton-filtro" data-filtro="tapas" type="button">Tapas</button>
+          <button class="boton-filtro" data-filtro="bebidas" type="button">Bebidas</button>
+          <button class="boton-filtro" data-filtro="local" type="button">Local</button>
+        </div>
+
+        <div id="galeria" class="grid-galeria"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal para ampliar imágenes -->
+  <div id="modal" class="modal">
+    <div class="modal-contenido">
+      <button id="cerrar-modal" class="cerrar-modal" type="button" aria-label="Cerrar">×</button>
+      <img id="modal-imagen" src="" alt="">
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-descripcion"></p>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="contenedor footer-contenido">
+      <div>
+        <h3>El Rincón del Tapeo</h3>
+        <p>Calle Mayor 25, Albacete, España</p>
+      </div>
+
+      <div>
+        <h3>Redes sociales</h3>
+        <p>
+          <a href="#">Facebook</a> |
+          <a href="#">Instagram</a> |
+          <a href="#">X</a>
+        </p>
+      </div>
+
+      <div>
+        <h3>Información legal</h3>
+        <p>Aviso legal y política de privacidad</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
