@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Configuración básica del documento -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Título de la página -->
   <title>El Rincón del Tapeo | Contacto</title>
-
-  <!-- Descripción para buscadores -->
   <meta name="description" content="Contacta con El Rincón del Tapeo y encuentra nuestra ubicación. Calcula la ruta desde tu ubicación.">
-
-  <!-- Hoja de estilos principal del proyecto -->
+  
+  <!-- CSS - Ruta corregida -->
   <link rel="stylesheet" href="../css/style.css">
-
-  <!-- Librería de iconos para redes sociales -->
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-  <!-- Leaflet CSS y JS para el mapa dinámico -->
+  
+  <!-- Leaflet CSS y JS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   
-  <!-- Leaflet Routing Machine para cálculo de rutas -->
+  <!-- Leaflet Routing Machine -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
   <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-
-  <!-- JavaScript general del sitio -->
-  <script defer src="../js/main.js"></script>
   
-  <!-- JavaScript específico para el mapa y rutas -->
+  <!-- JavaScript - Rutas corregidas -->
+  <script defer src="../js/main.js"></script>
   <script defer src="../js/contacto.js"></script>
 </head>
 <body>
 
-  <!-- Cabecera principal -->
   <header class="header">
     <div class="contenedor barra-superior">
-
-      <!-- Logotipo o nombre del sitio -->
       <div class="logo">
         <a href="../index.html" aria-label="Ir al inicio">
           <img src="../images/logo.png" alt="El Rincón del Tapeo">
         </a>
       </div>
-
-      <!-- Menú de navegación principal -->
       <nav class="navegacion" aria-label="Principal">
         <ul>
           <li><a href="../index.html">Inicio</a></li>
@@ -56,10 +44,7 @@
     </div>
   </header>
 
-  <!-- Contenido principal -->
   <main>
-
-    <!-- Sección superior de presentación -->
     <section class="hero hero-secundario">
       <div class="contenedor hero-contenido">
         <p class="subtitulo">Estamos cerca de ti</p>
@@ -68,11 +53,8 @@
       </div>
     </section>
 
-    <!-- Sección principal de contacto -->
     <section class="seccion">
       <div class="contenedor contacto-grid">
-
-        <!-- Bloque con la información del restaurante -->
         <article class="bloque-contacto">
           <h2>Información de contacto</h2>
           <p><strong>📍 Dirección:</strong> Calle Mayor 25, 02001 Albacete, España</p>
@@ -89,27 +71,20 @@
           <p id="estado-ruta" class="texto-ayuda"></p>
         </article>
 
-        <!-- Contenedor del mapa dinámico con Leaflet -->
         <div class="mapa-contenedor">
           <div id="mapa"></div>
         </div>
-
       </div>
     </section>
   </main>
 
-  <!-- Pie de página -->
   <footer class="footer">
     <div class="contenedor footer-contenido">
-
-      <!-- Información del local -->
       <div>
         <h3>El Rincón del Tapeo</h3>
         <p>Calle Mayor 25, Albacete, España</p>
         <p>📍 Cómo llegar: Usa el mapa para calcular tu ruta</p>
       </div>
-
-      <!-- Redes sociales -->
       <div>
         <h3>Redes sociales</h3>
         <p class="redes">
@@ -119,8 +94,6 @@
           <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         </p>
       </div>
-
-      <!-- Información legal -->
       <div>
         <h3>Información legal</h3>
         <p>© 2024 El Rincón del Tapeo</p>
