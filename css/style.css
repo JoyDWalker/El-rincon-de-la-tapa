@@ -1,7 +1,5 @@
-/* =========================
-   ESTILOS GENERALES
-========================= */
-
+/* VARIABLES GLOBALES
+Aquí se definen los colores, tamaños y valores reutilizables */
 :root {
   --color-principal: #8b1e3f;
   --color-secundario: #f4e7d3;
@@ -14,14 +12,17 @@
   --ancho-maximo: 1200px;
 }
 
+/* Hace que padding y border no aumenten el tamaño final del elemento */
 * {
   box-sizing: border-box;
 }
 
+/* Activa desplazamiento suave al navegar por la página */
 html {
   scroll-behavior: smooth;
 }
 
+/* Estilos generales del cuerpo del documento */
 body {
   margin: 0;
   font-family: Arial, Tahoma, Verdana, sans-serif;
@@ -30,49 +31,66 @@ body {
   line-height: 1.6;
 }
 
+/* Las imágenes nunca desbordan su contenedor */
 img {
   max-width: 100%;
   display: block;
 }
 
+/* Los enlaces heredan color y no muestran subrayado */
 a {
   text-decoration: none;
   color: inherit;
 }
 
+/* Elimina estilos por defecto de las listas */
 ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+/* Hace que formularios y botones usen la misma fuente del sitio */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Contenedor general para centrar y limitar el ancho del contenido */
 .contenedor {
   width: 90%;
   max-width: var(--ancho-maximo);
   margin: 0 auto;
 }
 
+/* Espaciado vertical estándar de cada sección */
 .seccion {
   padding: 70px 0;
 }
 
+/* Fondo suave para alternar secciones */
 .fondo-suave {
   background-color: var(--color-secundario);
 }
 
-h1, h2, h3 {
+/* Ajustes generales de títulos */
+h1,
+h2,
+h3 {
   margin-top: 0;
   line-height: 1.2;
 }
 
+/* Elimina margen superior por defecto en párrafos */
 p {
   margin-top: 0;
 }
 
-/* =========================
-   HEADER Y NAVEGACIÓN
-========================= */
+/* header y navegación*/
 
+/* Cabecera fija en la parte superior (sticky para que acompañe al scroll) */
 .header {
   position: sticky;
   top: 0;
@@ -81,57 +99,93 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Barra superior que alinea logo y navegación horizontalmente */
 .barra-superior {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  min-height: 80px;
-  gap: 20px;
+  padding: 15px 0;
+  gap: 30px;
+}
+
+/* Logo con estilo optimizado */
+.logo {
+  flex-shrink: 0;
 }
 
 .logo a {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 55px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.02);
+}
+
+/* Estilo del nombre o logo del bar (texto alternativo) */
+.logo a span {
   color: var(--color-blanco);
   font-size: 1.5rem;
   font-weight: bold;
 }
 
+/* Coloca los enlaces del menú en línea */
 .navegacion ul {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
 }
 
+/* Apariencia base de los enlaces del menú */
 .navegacion a {
   color: var(--color-blanco);
   padding: 10px 14px;
   border-radius: 8px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Efecto hover y página activa */
 .navegacion a:hover,
 .navegacion a.activa {
   background-color: var(--color-acento);
   color: var(--color-oscuro);
 }
 
-/* =========================
-   HERO
-========================= */
+/* hero principal */
 
+/* Sección destacada principal con imagen de fondo */
 .hero {
   min-height: 80vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(31, 31, 31, 0.55), rgba(31, 31, 31, 0.55)),
-              url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  background:
+    linear-gradient(rgba(31, 31, 31, 0.55), rgba(31, 31, 31, 0.55)),
+    url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1600&q=80")
+    center/cover no-repeat;
   color: var(--color-blanco);
   text-align: center;
 }
 
+/* Versión reducida del hero para páginas internas */
+.hero-secundario {
+  min-height: 50vh;
+}
+
+/* Limita el ancho del contenido textual del hero */
 .hero-contenido {
   max-width: 800px;
 }
 
+/* Texto pequeño decorativo encima del título principal */
 .subtitulo {
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -140,16 +194,19 @@ p {
   color: var(--color-acento);
 }
 
+/* Título principal del hero */
 .hero h1 {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
+/* Texto descriptivo del hero */
 .hero p {
   font-size: 1.1rem;
   margin-bottom: 25px;
 }
 
+/* Botones principales del sitio */
 .boton {
   display: inline-block;
   background-color: var(--color-acento);
@@ -157,18 +214,40 @@ p {
   padding: 14px 24px;
   border-radius: 30px;
   font-weight: bold;
+  border: none;
+  cursor: pointer;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
+/* Efecto hover del botón */
 .boton:hover {
   background-color: #c58d5d;
   transform: translateY(-2px);
 }
 
-/* =========================
-   TARJETAS
-========================= */
+/* Variante secundaria del botón */
+.boton-secundario {
+  background-color: var(--color-oscuro);
+  color: var(--color-blanco);
+}
 
+/* Hover del botón secundario */
+.boton-secundario:hover {
+  background-color: #3b3b3b;
+}
+
+/* Estados de foco para accesibilidad */
+.boton:focus,
+.boton-filtro:focus,
+.tarjeta-galeria:focus,
+.cerrar-modal:focus {
+  outline: 3px solid rgba(212, 163, 115, 0.45);
+  outline-offset: 2px;
+}
+
+/* tarjetas de inicio */
+
+/* Rejilla de tarjetas informativas */
 .tarjetas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -176,6 +255,7 @@ p {
   margin-top: 30px;
 }
 
+/* Estilo individual de cada tarjeta */
 .tarjeta {
   background-color: var(--color-blanco);
   padding: 25px;
@@ -183,15 +263,15 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Título de las tarjetas */
 .tarjeta h3 {
   color: var(--color-principal);
   margin-bottom: 12px;
 }
 
-/* =========================
-   NOTICIAS
-========================= */
+/* noticias*/
 
+/* Rejilla que contiene las noticias cargadas con JavaScript */
 .contenedor-noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -199,6 +279,7 @@ p {
   margin-top: 30px;
 }
 
+/* Tarjeta individual de noticia */
 .noticia {
   background-color: var(--color-blanco);
   border-radius: var(--radio);
@@ -206,79 +287,22 @@ p {
   padding: 25px;
 }
 
+/* Título de la noticia */
 .noticia h3 {
   color: var(--color-principal);
   margin-bottom: 10px;
 }
 
+/* Fecha de la noticia */
 .noticia .fecha {
   font-size: 0.9rem;
   color: #666666;
   margin-bottom: 12px;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* galeria */
 
-.footer {
-  background-color: var(--color-oscuro);
-  color: var(--color-blanco);
-  padding: 40px 0;
-}
-
-.footer-contenido {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-.footer h3 {
-  color: var(--color-acento);
-  margin-bottom: 10px;
-}
-
-.footer a:hover {
-  color: var(--color-acento);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media (max-width: 900px) {
-  .tarjetas,
-  .contenedor-noticias,
-  .footer-contenido {
-    grid-template-columns: 1fr;
-  }
-
-  .barra-superior {
-    flex-direction: column;
-    justify-content: center;
-    padding: 15px 0;
-  }
-
-  .navegacion ul {
-    justify-content: center;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-  }
-}
-/* =========================
-   HERO SECUNDARIO
-========================= */
-
-.hero-secundario {
-  min-height: 50vh;
-}
-
-/* =========================
-   GALERÍA
-========================= */
-
+/* Contenedor de botones filtro */
 .filtros-galeria {
   display: flex;
   gap: 12px;
@@ -286,6 +310,7 @@ p {
   margin: 25px 0 35px;
 }
 
+/* Botones para filtrar la galería */
 .boton-filtro {
   border: none;
   background-color: var(--color-principal);
@@ -296,6 +321,7 @@ p {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
+/* Hover y estado activo del filtro */
 .boton-filtro:hover,
 .boton-filtro.activo {
   background-color: var(--color-acento);
@@ -303,12 +329,14 @@ p {
   transform: translateY(-2px);
 }
 
+/* Rejilla de imágenes de la galería */
 .grid-galeria {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
 
+/* Tarjeta contenedora de cada elemento */
 .item-galeria {
   background-color: var(--color-blanco);
   border-radius: var(--radio);
@@ -316,6 +344,7 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Botón que actúa como tarjeta clicable */
 .tarjeta-galeria {
   width: 100%;
   border: none;
@@ -325,25 +354,27 @@ p {
   text-align: left;
 }
 
+/* Imagen de la tarjeta */
 .tarjeta-galeria img {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
+/* Zona de texto de la tarjeta */
 .info-galeria {
   padding: 20px;
 }
 
+/* Título de cada elemento de galería */
 .info-galeria h3 {
   color: var(--color-principal);
   margin-bottom: 10px;
 }
 
-/* =========================
-   MODAL
-========================= */
+/* modal */
 
+/* Fondo oscuro del modal */
 .modal {
   position: fixed;
   top: 0;
@@ -358,10 +389,12 @@ p {
   z-index: 2000;
 }
 
+/* Muestra el modal cuando se activa */
 .modal.mostrar {
   display: flex;
 }
 
+/* Caja blanca del modal */
 .modal-contenido {
   background-color: var(--color-blanco);
   width: 100%;
@@ -372,6 +405,7 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Imagen ampliada del modal */
 .modal-contenido img {
   width: 100%;
   max-height: 400px;
@@ -380,6 +414,7 @@ p {
   margin-bottom: 20px;
 }
 
+/* Botón para cerrar el modal */
 .cerrar-modal {
   position: absolute;
   top: 10px;
@@ -394,69 +429,15 @@ p {
   cursor: pointer;
 }
 
-/* =========================
-   RESPONSIVE GALERÍA
-========================= */
+/* PRESUPUESTO */
 
-@media (max-width: 900px) {
-  .grid-galeria {
-    grid-template-columns: 1fr;
-  }
-}
-/* =========================
-   CONTACTO Y MAPA
-========================= */
-
-.contacto-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-  align-items: stretch;
-}
-
-.bloque-contacto {
-  background-color: var(--color-blanco);
-  padding: 30px;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra);
-}
-
-.mapa-contenedor {
-  border-radius: var(--radio);
-  overflow: hidden;
-  box-shadow: var(--sombra);
-  min-height: 500px;
-}
-
-#mapa {
-  width: 100%;
-  height: 100%;
-  min-height: 500px;
-}
-
-/* =========================
-   RESPONSIVE CONTACTO
-========================= */
-
-@media (max-width: 900px) {
-  .contacto-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .mapa-contenedor,
-  #mapa {
-    min-height: 400px;
-  }
-}
-/* =========================
-   FORMULARIO DE PRESUPUESTO
-========================= */
-
+/* Distribución general del formulario */
 .formulario-presupuesto {
   display: grid;
   gap: 30px;
 }
 
+/* Bloques internos del formulario */
 .bloque-formulario {
   background-color: var(--color-blanco);
   padding: 30px;
@@ -464,23 +445,27 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Fila de dos columnas para agrupar campos */
 .fila-formulario {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
+/* Contenedor de cada campo */
 .campo-formulario {
   display: flex;
   flex-direction: column;
   margin-bottom: 18px;
 }
 
+/* Etiquetas de formulario */
 .campo-formulario label {
   font-weight: bold;
   margin-bottom: 8px;
 }
 
+/* Campos de entrada y select */
 .campo-formulario input,
 .campo-formulario select {
   padding: 12px 14px;
@@ -489,12 +474,14 @@ p {
   font-size: 1rem;
 }
 
+/* Estado focus de campos */
 .campo-formulario input:focus,
 .campo-formulario select:focus {
   outline: 2px solid rgba(139, 30, 63, 0.2);
   border-color: var(--color-principal);
 }
 
+/* Mensajes de error bajo los campos */
 .mensaje-error {
   color: #b00020;
   font-size: 0.9rem;
@@ -502,12 +489,14 @@ p {
   margin: 6px 0 0;
 }
 
+/* Texto auxiliar del formulario */
 .texto-ayuda {
   color: #666666;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-top: 8px;
 }
 
+/* Caja que agrupa los extras */
 .grupo-extras {
   border: 1px solid #dddddd;
   border-radius: 8px;
@@ -515,18 +504,22 @@ p {
   margin: 20px 0;
 }
 
+/* Título del grupo de extras */
 .grupo-extras legend {
   font-weight: bold;
   padding: 0 8px;
 }
 
+/* Línea para checkboxes */
 .linea-checkbox {
   display: flex;
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
+/* Caja resumen del total calculado */
 .resumen-presupuesto {
   background-color: var(--color-secundario);
   border-radius: 8px;
@@ -534,53 +527,39 @@ p {
   margin: 20px 0;
 }
 
+/* Estilo del total final */
 .total-presupuesto {
   font-size: 1.2rem;
   font-weight: bold;
   color: var(--color-principal);
 }
 
+/* Botones del formulario */
 .acciones-formulario {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
 }
 
-.boton-secundario {
-  background-color: var(--color-oscuro);
-  color: var(--color-blanco);
-}
-
-.boton-secundario:hover {
-  background-color: #3b3b3b;
-}
-
+/* Mensaje general del formulario */
 .mensaje-formulario {
   margin-top: 18px;
   font-weight: bold;
 }
 
+/* Mensaje de éxito */
 .mensaje-exito {
   color: #117a37;
 }
 
+/* Mensaje general de error */
 .mensaje-error-general {
   color: #b00020;
 }
 
-/* =========================
-   RESPONSIVE FORMULARIO
-========================= */
+/* CONTACTO Y MAPA*/
 
-@media (max-width: 900px) {
-  .fila-formulario {
-    grid-template-columns: 1fr;
-  }
-}
-/* =========================
-   CONTACTO Y MAPA
-========================= */
-
+/* Distribución en dos columnas de la página de contacto */
 .contacto-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -588,6 +567,7 @@ p {
   align-items: stretch;
 }
 
+/* Bloque de información del contacto */
 .bloque-contacto {
   background-color: var(--color-blanco);
   padding: 30px;
@@ -595,30 +575,153 @@ p {
   box-shadow: var(--sombra);
 }
 
+/* Contenedor exterior del mapa */
 .mapa-contenedor {
   border-radius: var(--radio);
   overflow: hidden;
   box-shadow: var(--sombra);
   min-height: 500px;
+  background-color: #f0f0f0;
 }
 
+/* Elemento donde se dibuja el mapa */
 #mapa {
   width: 100%;
   height: 100%;
   min-height: 500px;
 }
 
-/* =========================
-   RESPONSIVE CONTACTO
-========================= */
+/* Estilo para el botón de ruta */
+.btn-ruta {
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
 
+.btn-ruta button {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Estado de la ruta */
+#estado-ruta {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Ajuste del panel de rutas de Leaflet */
+.leaflet-routing-container {
+  max-width: 320px;
+  font-size: 0.95rem;
+}
+
+/* footer */
+/* Pie de página general */
+.footer {
+  background-color: var(--color-oscuro);
+  color: var(--color-blanco);
+  padding: 40px 0;
+}
+
+/* Rejilla interna del footer */
+.footer-contenido {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* Títulos del footer */
+.footer h3 {
+  color: var(--color-acento);
+  margin-bottom: 10px;
+}
+
+/* Hover de enlaces del footer */
+.footer a:hover {
+  color: var(--color-acento);
+}
+
+/* Grupo de iconos de redes sociales */
+.redes {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 1.2rem;
+}
+
+/* Estilo visual de cada icono social */
+.redes a {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-blanco);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Hover de iconos sociales */
+.redes a:hover {
+  background-color: var(--color-acento);
+  color: var(--color-oscuro);
+  transform: translateY(-2px);
+}
+
+/* DISEÑO EXTRA */
+
+/* Ajustes para pantallas medianas y pequeñas */
 @media (max-width: 900px) {
+  .tarjetas,
+  .contenedor-noticias,
+  .footer-contenido,
+  .grid-galeria,
+  .fila-formulario,
   .contacto-grid {
     grid-template-columns: 1fr;
   }
 
+  /* La cabecera se apila verticalmente */
+  .barra-superior {
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px 0;
+    gap: 15px;
+  }
+
+  /* Centra el menú en móvil */
+  .navegacion ul {
+    justify-content: center;
+  }
+
+  /* Ajusta el tamaño del logo en móvil */
+  .logo img {
+    height: 45px;
+    max-width: 130px;
+  }
+
+  /* Reduce el tamaño del título principal */
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  /* Reduce la altura mínima del mapa */
   .mapa-contenedor,
   #mapa {
     min-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Ajuste adicional para móviles muy pequeños */
+  .barra-superior {
+    gap: 10px;
+  }
+  
+  .logo img {
+    height: 40px;
   }
 }
