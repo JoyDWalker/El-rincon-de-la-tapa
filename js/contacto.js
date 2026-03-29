@@ -1,28 +1,22 @@
-// Inicializa el mapa cuando el DOM está listo
 document.addEventListener("DOMContentLoaded", function () {
   const contenedorMapa = document.getElementById("mapa");
   const botonRuta = document.getElementById("btn-ruta");
   const estadoRuta = document.getElementById("estado-ruta");
 
-  // Verifica que existan los elementos necesarios y que Leaflet esté cargado
   if (!contenedorMapa || !botonRuta || !estadoRuta || typeof L === "undefined") {
     console.error("Elementos del mapa no encontrados o Leaflet no cargado");
     return;
   }
 
-  // Coordenadas del local (Albacete, Calle Mayor 25)
   const ubicacionBar = [38.9945, -1.8581];
 
-  // Crea el mapa centrado en la ubicación del negocio
   const mapa = L.map("mapa").setView(ubicacionBar, 15);
 
-  // Añade la capa base de OpenStreetMap
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(mapa);
 
-  // Icono personalizado para el marcador del negocio
   const iconoNegocio = L.divIcon({
     html: '<i class="fa-solid fa-utensils" style="font-size: 24px; color: #8b1e3f; background: white; padding: 8px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></i>',
     className: 'custom-div-icon',
@@ -30,8 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     popupAnchor: [0, -20]
   });
 
-  // Inserta el marcador del negocio
-  const marcadorNegocio = L.marker(ubicacionBar, { icon: iconoNegocio })
+  L.marker(ubicacionBar, { icon: iconoNegocio })
     .addTo(mapa)
     .bindPopup(`
       <strong>El Rincón del Tapeo</strong><br>
@@ -40,10 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
     `)
     .openPopup();
 
-  // Guarda la ruta actual para poder actualizarla
   let controlRuta = null;
 
-  // Calcula la ruta desde la ubicación del usuario hasta el negocio
   botonRuta.addEventListener("click", function () {
     if (!navigator.geolocation) {
       estadoRuta.textContent = "❌ Tu navegador no permite obtener la ubicación.";
@@ -61,12 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
           posicion.coords.longitude
         ];
 
-        // Eliminar ruta anterior si existe
         if (controlRuta) {
           mapa.removeControl(controlRuta);
         }
 
-        // Añadir un marcador para la ubicación del usuario
         const iconoUsuario = L.divIcon({
           html: '<i class="fa-solid fa-location-dot" style="font-size: 24px; color: #2c7da0; background: white; padding: 8px; border-radius: 50%; box-shadow: 0 2px 5px rgba(0,0,0,0.2);"></i>',
           className: 'custom-div-icon',
@@ -78,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
           .bindPopup("📍 Tu ubicación actual")
           .openPopup();
 
-        // Calcular y mostrar la ruta
         controlRuta = L.Routing.control({
           waypoints: [
             L.latLng(ubicacionCliente[0], ubicacionCliente[1]),
