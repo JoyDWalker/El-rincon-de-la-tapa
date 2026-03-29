@@ -1,10 +1,9 @@
+// Espera a que todo el contenido HTML esté cargado antes de ejecutar el script
 document.addEventListener("DOMContentLoaded", function () {
   const formulario = document.getElementById("formulario-presupuesto");
+  if (!formulario) return;
 
-  if (!formulario) {
-    return;
-  }
-
+  // Referencias a los campos del formulario
   const nombre = document.getElementById("nombre");
   const apellidos = document.getElementById("apellidos");
   const telefono = document.getElementById("telefono");
@@ -15,6 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const condiciones = document.getElementById("condiciones");
   const mensajeFormulario = document.getElementById("mensaje-formulario");
 
+  // Referencias al resumen
+  const subtotalElemento = document.getElementById("subtotal");
+  const descuentoElemento = document.getElementById("descuento");
+  const totalElemento = document.getElementById("total");
+
+  // Expresiones regulares para validar los campos
   const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{1,15}$/;
   const regexApellidos = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{1,40}$/;
   const regexTelefono = /^[0-9]{9}$/;
@@ -87,6 +92,16 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
+  function validarPlazo() {
+    const dias = Number(plazo.value);
+
+    if (!dias || dias < 1 || dias > 90) {
+      return false;
+    }
+
+    return true;
+  }
+
   function calcularDescuento(subtotal, dias) {
     let porcentaje = 0;
 
@@ -104,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function () {
   function actualizarPresupuesto() {
     const precioProducto = Number(producto.value) || 0;
     const dias = Number(plazo.value) || 0;
-
     let totalExtras = 0;
 
     extras.forEach(function (extra) {
@@ -117,9 +131,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const descuento = calcularDescuento(subtotal, dias);
     const total = subtotal - descuento;
 
-    document.getElementById("subtotal").textContent = subtotal.toFixed(2) + " €";
-    document.getElementById("descuento").textContent = descuento.toFixed(2) + " €";
-    document.getElementById("total").textContent = total.toFixed(2) + " €";
+    subtotalElemento.textContent = subtotal.toFixed(2) + " €";
+    descuentoElemento.textContent = descuento.toFixed(2) + " €";
+    totalElemento.textContent = total.toFixed(2) + " €";
   }
 
   nombre.addEventListener("input", validarNombre);
@@ -145,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
       validarTelefono() &&
       validarEmail() &&
       validarCondiciones() &&
+      validarPlazo() &&
       producto.value !== "";
 
     if (producto.value === "") {

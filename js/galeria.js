@@ -1,4 +1,4 @@
-// Datos de la galería del bar de tapas
+// Datos base de la galería: cada elemento incluye título, categoría, descripción e imagen
 const elementosGaleria = [
   {
     titulo: "Patatas bravas",
@@ -10,13 +10,13 @@ const elementosGaleria = [
     titulo: "Croquetas caseras",
     categoria: "tapas",
     descripcion: "Croquetas cremosas y doradas, ideales para compartir.",
-    imagen: "https://images.unsplash.com/photo-1515443961218-a51367888e4b?auto=format&fit=crop&w=900&q=80"
+    imagen: "https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?auto=format&fit=crop&w=900&q=80"
   },
   {
-    titulo: "Tabla de jamón",
+    titulo: "Tabla ibérica",
     categoria: "tapas",
     descripcion: "Selección ibérica servida con pan y tomate.",
-    imagen: "https://images.unsplash.com/photo-1604909052743-94e838986d24?auto=format&fit=crop&w=900&q=80"
+    imagen: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80"
   },
   {
     titulo: "Vino de la casa",
@@ -28,7 +28,7 @@ const elementosGaleria = [
     titulo: "Cañas bien frías",
     categoria: "bebidas",
     descripcion: "Perfectas para acompañar el ambiente del local.",
-    imagen: "https://images.unsplash.com/photo-1563379091339-03246963d96c?auto=format&fit=crop&w=900&q=80"
+    imagen: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=900&q=80"
   },
   {
     titulo: "Salón principal",
@@ -40,7 +40,7 @@ const elementosGaleria = [
     titulo: "Barra de tapas",
     categoria: "local",
     descripcion: "La zona más viva del bar, ideal para disfrutar del tapeo tradicional.",
-    imagen: "https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=900&q=80"
+    imagen: "https://images.unsplash.com/photo-1579027989536-b7b1f875659b?auto=format&fit=crop&w=900&q=80"
   },
   {
     titulo: "Terraza exterior",
@@ -50,30 +50,30 @@ const elementosGaleria = [
   }
 ];
 
-// Espera a que cargue el DOM
-document.addEventListener("DOMContentLoaded", function () {
+// Inicializa la galería cuando el DOM está listo
+document.addEventListener("DOMContentLoaded", () => {
   mostrarGaleria("todos");
   activarFiltros();
   prepararModal();
 });
 
-// Muestra los elementos según el filtro seleccionado
+// Muestra en pantalla los elementos según el filtro seleccionado
 function mostrarGaleria(filtro) {
   const contenedor = document.getElementById("galeria");
+  if (!contenedor) return;
+
   contenedor.innerHTML = "";
 
   const elementosFiltrados = filtro === "todos"
     ? elementosGaleria
-    : elementosGaleria.filter(function (elemento) {
-        return elemento.categoria === filtro;
-      });
+    : elementosGaleria.filter((elemento) => elemento.categoria === filtro);
 
-  elementosFiltrados.forEach(function (elemento) {
+  elementosFiltrados.forEach((elemento) => {
     const article = document.createElement("article");
-    article.classList.add("item-galeria");
+    article.className = "item-galeria";
 
     article.innerHTML = `
-      <button class="tarjeta-galeria" type="button">
+      <button class="tarjeta-galeria" type="button" aria-label="Ver ${elemento.titulo}">
         <img src="${elemento.imagen}" alt="${elemento.titulo}">
         <div class="info-galeria">
           <h3>${elemento.titulo}</h3>
@@ -82,9 +82,7 @@ function mostrarGaleria(filtro) {
       </button>
     `;
 
-    const boton = article.querySelector(".tarjeta-galeria");
-
-    boton.addEventListener("click", function () {
+    article.querySelector(".tarjeta-galeria").addEventListener("click", () => {
       abrirModal(elemento);
     });
 
@@ -92,47 +90,63 @@ function mostrarGaleria(filtro) {
   });
 }
 
-// Activa los botones filtro
+// Activa los botones de filtro
 function activarFiltros() {
   const botones = document.querySelectorAll(".boton-filtro");
 
-  botones.forEach(function (boton) {
-    boton.addEventListener("click", function () {
-      botones.forEach(function (item) {
-        item.classList.remove("activo");
-      });
-
+  botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      botones.forEach((item) => item.classList.remove("activo"));
       boton.classList.add("activo");
       mostrarGaleria(boton.dataset.filtro);
     });
   });
 }
 
-// Prepara eventos del modal
+// Configura el comportamiento del modal
 function prepararModal() {
   const modal = document.getElementById("modal");
   const cerrar = document.getElementById("cerrar-modal");
 
+  if (!modal || !cerrar) return;
+
   cerrar.addEventListener("click", cerrarModal);
 
-  modal.addEventListener("click", function (evento) {
+  modal.addEventListener("click", (evento) => {
     if (evento.target === modal) {
+      cerrarModal();
+    }
+  });
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape") {
       cerrarModal();
     }
   });
 }
 
-// Abre modal con la información del elemento
+// Abre el modal con la información del elemento seleccionado
 function abrirModal(elemento) {
-  document.getElementById("modal-imagen").src = elemento.imagen;
-  document.getElementById("modal-imagen").alt = elemento.titulo;
-  document.getElementById("modal-titulo").textContent = elemento.titulo;
-  document.getElementById("modal-descripcion").textContent = elemento.descripcion;
+  const modal = document.getElementById("modal");
+  const imagen = document.getElementById("modal-imagen");
+  const titulo = document.getElementById("modal-titulo");
+  const descripcion = document.getElementById("modal-descripcion");
 
-  document.getElementById("modal").classList.add("mostrar");
+  if (!modal || !imagen || !titulo || !descripcion) return;
+
+  imagen.src = elemento.imagen;
+  imagen.alt = elemento.titulo;
+  titulo.textContent = elemento.titulo;
+  descripcion.textContent = elemento.descripcion;
+  modal.classList.add("mostrar");
+  modal.setAttribute("aria-hidden", "false");
 }
 
 // Cierra el modal
 function cerrarModal() {
-  document.getElementById("modal").classList.remove("mostrar");
+  const modal = document.getElementById("modal");
+  if (!modal) return;
+
+  modal.classList.remove("mostrar");
+  modal.setAttribute("aria-hidden", "true");
 }
