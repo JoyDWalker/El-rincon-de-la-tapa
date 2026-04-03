@@ -1,14 +1,14 @@
-// Ejecuta la función cuando el DOM está listo
+// Run the function when the DOM is ready
 document.addEventListener("DOMContentLoaded", function () {
   marcarPaginaActiva();
 });
 
-// Obtiene el nombre del archivo desde una ruta
+// Get the file name from a path
 function obtenerNombreArchivo(ruta) {
   return ruta.split("/").pop();
 }
 
-// Resalta el enlace de la página actual en la navegación
+// Highlight the current page link in the navigation
 function marcarPaginaActiva() {
   const enlaces = document.querySelectorAll(".navegacion a");
   const paginaActual = obtenerNombreArchivo(window.location.pathname) || "index.html";
