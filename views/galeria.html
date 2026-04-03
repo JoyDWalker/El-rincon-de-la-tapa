@@ -1,31 +1,55 @@
 <!DOCTYPE html>
+<!-- Declares that the document uses HTML5 -->
+
 <html lang="es">
+<!-- Root HTML element, with Spanish set as the page language -->
+
 <head>
+  <!-- Basic page metadata -->
   <meta charset="UTF-8">
+  <!-- Sets UTF-8 encoding for special characters -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the layout responsive on different screen sizes -->
+
   <title>El Rincón del Tapeo | Galería</title>
+  <!-- Title shown in the browser tab -->
+
   <meta name="description" content="Galería interactiva de tapas, bebidas y espacios de El Rincón del Tapeo.">
-  
-  <!-- CSS - Ruta corregida (subir un nivel) -->
+  <!-- Short description of the gallery page -->
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
-  
-  <!-- Font Awesome -->
+
+  <!-- Font Awesome icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <!-- JavaScript - Rutas corregidas -->
+
+  <!-- Project JavaScript files -->
   <script defer src="../js/main.js"></script>
+  <!-- Handles active navigation highlighting -->
+
   <script defer src="../js/galeria.js"></script>
+  <!-- Handles the dynamic gallery, filters, and modal behavior -->
 </head>
+
 <body>
+  <!-- Visible page content starts here -->
 
   <header class="header">
+    <!-- Main site header -->
+
     <div class="contenedor barra-superior">
+      <!-- Container for logo and navigation -->
+
       <div class="logo">
+        <!-- Site logo linking back to the home page -->
         <a href="../index.html" aria-label="Ir al inicio">
           <img src="../images/logo.png" alt="El Rincón del Tapeo">
         </a>
       </div>
+
       <nav class="navegacion" aria-label="Principal">
+        <!-- Main navigation menu -->
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="galeria.html" class="activa">Galería</a></li>
@@ -37,27 +61,40 @@
   </header>
 
   <main>
+    <!-- Main content area -->
+
     <section class="hero hero-secundario">
+      <!-- Secondary hero section for the gallery page -->
       <div class="contenedor hero-contenido">
         <p class="subtitulo">Descubre nuestro espacio</p>
+        <!-- Introductory subtitle -->
+
         <h1>Galería interactiva</h1>
+        <!-- Main page heading -->
+
         <p>Explora nuestras tapas, bebidas y rincones favoritos del local.</p>
+        <!-- Short description of the gallery -->
       </div>
     </section>
 
     <section class="seccion">
+      <!-- Introductory content section -->
       <div class="contenedor">
         <h2>Nuestra galería</h2>
         <p>Una muestra del ambiente, las tapas y los momentos que se viven en nuestro bar.</p>
+
         <div class="tarjetas">
+          <!-- Informational cards shown before the dynamic gallery -->
           <article class="tarjeta">
             <h3>Ambiente acogedor</h3>
             <p>Espacios pensados para compartir y disfrutar.</p>
           </article>
+
           <article class="tarjeta">
             <h3>Tapas caseras</h3>
             <p>Recetas tradicionales con sabor auténtico.</p>
           </article>
+
           <article class="tarjeta">
             <h3>Momentos especiales</h3>
             <p>Ideal para reuniones, cenas y celebraciones.</p>
@@ -67,36 +104,57 @@
     </section>
 
     <section class="seccion fondo-suave">
+      <!-- Dynamic gallery section -->
       <div class="contenedor">
         <h2>Explora por categorías</h2>
+
         <div class="filtros-galeria">
+          <!-- Filter buttons used to show gallery items by category -->
           <button class="boton-filtro activo" type="button" data-filtro="todos">Todos</button>
           <button class="boton-filtro" type="button" data-filtro="tapas">Tapas</button>
           <button class="boton-filtro" type="button" data-filtro="bebidas">Bebidas</button>
           <button class="boton-filtro" type="button" data-filtro="local">Local</button>
         </div>
+
         <div id="galeria" class="grid-galeria"></div>
+        <!-- JavaScript will insert the gallery items inside this container -->
       </div>
     </section>
 
-    <!-- Modal -->
     <div id="modal" class="modal" aria-hidden="true">
+      <!-- Modal window used to display a larger gallery item preview -->
       <div class="modal-contenido">
-        <button id="cerrar-modal" class="cerrar-modal" type="button" aria-label="Cerrar ventana">&times;</button>
+
+        <button id="cerrar-modal" class="cerrar-modal" type="button" aria-label="Cerrar ventana">
+          &times;
+        </button>
+        <!-- Button used to close the modal -->
+
         <img id="modal-imagen" src="" alt="">
+        <!-- Image displayed inside the modal -->
+
         <h3 id="modal-titulo"></h3>
+        <!-- Title displayed inside the modal -->
+
         <p id="modal-descripcion"></p>
+        <!-- Description displayed inside the modal -->
       </div>
     </div>
   </main>
 
   <footer class="footer">
+    <!-- Common footer used across the website -->
+
     <div class="contenedor footer-contenido">
+
       <div>
+        <!-- Business information -->
         <h3>El Rincón del Tapeo</h3>
         <p>Calle Mayor 25, Albacete, España</p>
       </div>
+
       <div>
+        <!-- Social media links -->
         <h3>Redes sociales</h3>
         <p class="redes">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -104,10 +162,13 @@
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </p>
       </div>
+
       <div>
+        <!-- Legal information -->
         <h3>Información legal</h3>
         <p>Aviso legal y política de privacidad</p>
       </div>
+
     </div>
   </footer>
 
