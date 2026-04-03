@@ -1,17 +1,32 @@
 [
   {
+    // News title shown on the home page
     "titulo": "Nueva promoción de tapas y caña",
+
+    // Publication date of the news item
     "fecha": "20/03/2026",
+
+    // Short description displayed under the title
     "descripcion": "Todos los jueves disfruta de una tapa especial y una caña a precio reducido en nuestro local."
   },
   {
+    // News title shown on the home page
     "titulo": "Menú especial de fin de semana",
+
+    // Publication date of the news item
     "fecha": "18/03/2026",
+
+    // Short description displayed under the title
     "descripcion": "Hemos preparado una selección de tapas tradicionales con postre casero para compartir en familia o con amigos."
   },
   {
+    // News title shown on the home page
     "titulo": "Noches de música en vivo",
+
+    // Publication date of the news item
     "fecha": "15/03/2026",
+
+    // Short description displayed under the title
     "descripcion": "Cada sábado por la noche contamos con música en directo para acompañar el mejor ambiente de tapeo."
   }
 ]
