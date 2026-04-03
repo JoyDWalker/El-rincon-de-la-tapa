@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Fixed coordinates of the business location
   const ubicacionBar = [38.9945, -1.8581];
 
-  // Create the map and center it on the business location
+// Use the OpenStreetMap tile API to load the base map through Leaflet
   const mapa = L.map("mapa").setView(ubicacionBar, 15);
 
-  // Load OpenStreetMap tiles into the map
+  // Use the OpenStreetMap tile API to load the base map through Leaflet
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 19,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
           .bindPopup("📍 Tu ubicación actual")
           .openPopup();
 
-        // Create and display the route from the user to the business
+        // Use the routing API through Leaflet Routing Machine to calculate the route from the user's location to the business
         controlRuta = L.Routing.control({
           waypoints: [
             L.latLng(ubicacionCliente[0], ubicacionCliente[1]),
