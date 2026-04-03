@@ -1,4 +1,4 @@
-/* VARIABLES GLOBALES */
+/* GLOBAL VARIABLES */
 :root {
   --color-principal: #8b1e3f;
   --color-secundario: #f4e7d3;
@@ -75,7 +75,7 @@ p {
   margin-top: 0;
 }
 
-/* header y navegación */
+/* Header and navigation */
 .header {
   position: sticky;
   top: 0;
@@ -133,7 +133,7 @@ p {
   color: var(--color-oscuro);
 }
 
-/* hero principal */
+/* Main hero section */
 .hero {
   min-height: 80vh;
   display: flex;
@@ -198,7 +198,7 @@ p {
   background-color: #3b3b3b;
 }
 
-/* tarjetas */
+/* Cards */
 .tarjetas {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -218,7 +218,7 @@ p {
   margin-bottom: 12px;
 }
 
-/* noticias */
+/* News */
 .contenedor-noticias {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -244,7 +244,7 @@ p {
   margin-bottom: 12px;
 }
 
-/* galeria */
+/* Gallery */
 .filtros-galeria {
   display: flex;
   gap: 12px;
@@ -306,7 +306,7 @@ p {
   margin-bottom: 10px;
 }
 
-/* modal */
+/* Modal */
 .modal {
   position: fixed;
   top: 0;
@@ -357,7 +357,7 @@ p {
   cursor: pointer;
 }
 
-/* presupuesto */
+/* Budget form */
 .formulario-presupuesto {
   display: grid;
   gap: 30px;
@@ -466,7 +466,7 @@ p {
   color: #b00020;
 }
 
-/* contacto y mapa */
+/* Contact and map */
 .contacto-grid {
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -518,7 +518,7 @@ p {
   font-size: 0.95rem;
 }
 
-/* footer */
+/* Footer */
 .footer {
   background-color: var(--color-oscuro);
   color: var(--color-blanco);
@@ -565,7 +565,7 @@ p {
   transform: translateY(-2px);
 }
 
-/* responsive */
+/* Responsive design */
 @media (max-width: 900px) {
   .tarjetas,
   .contenedor-noticias,
