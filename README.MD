@@ -109,7 +109,10 @@ The website uses a custom visual style with:
 
 This repository was created as a **public final project** for the **JavaScript Advanced** course at **MasterD**.  
 Its goal is to demonstrate the use of DOM manipulation, event handling, form validation, dynamic content loading, JSON consumption, and external JavaScript libraries in a complete front-end website.
+## Note
 
+As this is a fictional company and an academic project, no real social media profiles have been linked and no definitive corporate implementation of visual resources has been developed.  
+However, the proper and efficient way to implement these integrations in a professional environment is understood.
 ## How to Run the Project
 
 1. Clone the repository:
@@ -245,7 +248,10 @@ El sitio cuenta con un diseño visual personalizado que incluye:
 
 Este repositorio se publica como **repositorio público** del **proyecto final de JavaScript Advanced para MasterD**.  
 Su objetivo es demostrar el uso de manipulación del DOM, eventos, validación de formularios, carga dinámica de contenido, consumo de JSON y uso de librerías externas de JavaScript dentro de un proyecto web completo.
+## Nota
 
+Al tratarse de una empresa ficticia y de un proyecto académico, no se han enlazado perfiles reales de redes sociales ni se ha planteado una implementación corporativa definitiva de los recursos visuales.  
+No obstante, se conoce cómo realizar estas integraciones de forma eficiente en un entorno profesional.
 ## Cómo ejecutar el proyecto
 
 1. Clona el repositorio:
