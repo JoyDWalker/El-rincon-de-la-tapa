@@ -1,4 +1,4 @@
-// Datos base de la galería: cada elemento incluye título, categoría, descripción e imagen
+// Base gallery data: each item includes title, category, description, and image
 const elementosGaleria = [
   {
     titulo: "Patatas bravas",
@@ -50,14 +50,14 @@ const elementosGaleria = [
   }
 ];
 
-// Inicializa la galería cuando el DOM está listo
+// Initialize the gallery when the DOM is ready
 document.addEventListener("DOMContentLoaded", () => {
   mostrarGaleria("todos");
   activarFiltros();
   prepararModal();
 });
 
-// Muestra en pantalla los elementos según el filtro seleccionado
+// Display gallery items according to the selected filter
 function mostrarGaleria(filtro) {
   const contenedor = document.getElementById("galeria");
   if (!contenedor) return;
@@ -90,7 +90,7 @@ function mostrarGaleria(filtro) {
   });
 }
 
-// Activa los botones de filtro
+// Activate the filter buttons
 function activarFiltros() {
   const botones = document.querySelectorAll(".boton-filtro");
 
@@ -103,7 +103,7 @@ function activarFiltros() {
   });
 }
 
-// Configura el comportamiento del modal
+// Configure modal behavior
 function prepararModal() {
   const modal = document.getElementById("modal");
   const cerrar = document.getElementById("cerrar-modal");
@@ -125,7 +125,7 @@ function prepararModal() {
   });
 }
 
-// Abre el modal con la información del elemento seleccionado
+// Open the modal with the selected item information
 function abrirModal(elemento) {
   const modal = document.getElementById("modal");
   const imagen = document.getElementById("modal-imagen");
@@ -142,7 +142,7 @@ function abrirModal(elemento) {
   modal.setAttribute("aria-hidden", "false");
 }
 
-// Cierra el modal
+// Close the modal
 function cerrarModal() {
   const modal = document.getElementById("modal");
   if (!modal) return;
