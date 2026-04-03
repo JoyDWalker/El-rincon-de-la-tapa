@@ -1,31 +1,55 @@
 <!DOCTYPE html>
+<!-- Declares that the document uses HTML5 -->
+
 <html lang="es">
+<!-- Root HTML element, with Spanish set as the document language -->
+
 <head>
+  <!-- Basic page metadata -->
   <meta charset="UTF-8">
+  <!-- Sets UTF-8 encoding so accents and special characters display correctly -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the layout responsive on mobile and tablet devices -->
+
   <title>El Rincón del Tapeo | Presupuesto</title>
+  <!-- Title displayed in the browser tab -->
+
   <meta name="description" content="Solicita un presupuesto para reservas, menús y eventos en El Rincón del Tapeo.">
-  
-  <!-- CSS - Ruta corregida -->
+  <!-- Short SEO description for the budget page -->
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
-  
-  <!-- Font Awesome -->
+
+  <!-- Font Awesome icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <!-- JavaScript - Rutas corregidas -->
+
+  <!-- Project JavaScript files -->
   <script defer src="../js/main.js"></script>
+  <!-- Handles active navigation highlighting -->
+
   <script defer src="../js/presupuesto.js"></script>
+  <!-- Handles form validation and live budget calculation -->
 </head>
+
 <body>
+  <!-- Visible page content begins here -->
 
   <header class="header">
+    <!-- Main website header -->
+
     <div class="contenedor barra-superior">
+      <!-- Wrapper for logo and navigation -->
+
       <div class="logo">
+        <!-- Site logo linking to the home page -->
         <a href="../index.html" aria-label="Ir al inicio">
           <img src="../images/logo.png" alt="El Rincón del Tapeo">
         </a>
       </div>
+
       <nav class="navegacion" aria-label="Principal">
+        <!-- Main navigation menu -->
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="galeria.html">Galería</a></li>
@@ -37,52 +61,78 @@
   </header>
 
   <main>
+    <!-- Main page content -->
+
     <section class="hero hero-secundario">
+      <!-- Secondary hero section for this page -->
       <div class="contenedor hero-contenido">
         <p class="subtitulo">Reservas y eventos</p>
+        <!-- Introductory subtitle -->
+
         <h1>Solicita tu presupuesto</h1>
+        <!-- Main heading of the page -->
+
         <p>Calcula el precio estimado de tu reserva, comida de grupo o evento especial.</p>
+        <!-- Brief explanation of the purpose of the form -->
       </div>
     </section>
 
     <section class="seccion">
+      <!-- Main section containing the budget form -->
       <div class="contenedor">
         <h2>Formulario de presupuesto</h2>
+
         <form id="formulario-presupuesto" class="formulario-presupuesto" novalidate>
-          
-          <!-- Datos de contacto -->
+          <!-- Main form; native browser validation is disabled to allow custom JavaScript validation -->
+
           <div class="bloque-formulario">
+            <!-- First part of the form: contact information -->
             <h3>Datos de contacto</h3>
+
             <div class="fila-formulario">
+              <!-- Row for name and surname fields -->
+
               <div class="campo-formulario">
                 <label for="nombre">Nombre</label>
                 <input type="text" id="nombre" name="nombre" maxlength="15" required>
                 <p class="mensaje-error" id="error-nombre"></p>
+                <!-- Error message container for the name field -->
               </div>
+
               <div class="campo-formulario">
                 <label for="apellidos">Apellidos</label>
                 <input type="text" id="apellidos" name="apellidos" maxlength="40" required>
                 <p class="mensaje-error" id="error-apellidos"></p>
+                <!-- Error message container for the surname field -->
               </div>
             </div>
+
             <div class="fila-formulario">
+              <!-- Row for phone and email fields -->
+
               <div class="campo-formulario">
                 <label for="telefono">Teléfono</label>
                 <input type="tel" id="telefono" name="telefono" maxlength="9" required>
                 <p class="mensaje-error" id="error-telefono"></p>
+                <!-- Error message container for the phone field -->
               </div>
+
               <div class="campo-formulario">
                 <label for="email">Correo electrónico</label>
                 <input type="email" id="email" name="email" required>
                 <p class="mensaje-error" id="error-email"></p>
+                <!-- Error message container for the email field -->
               </div>
             </div>
           </div>
 
-          <!-- Configuración del presupuesto -->
           <div class="bloque-formulario">
+            <!-- Second part of the form: budget configuration -->
             <h3>Configura tu presupuesto</h3>
+
             <div class="fila-formulario">
+              <!-- Row for product/service selection and deadline -->
+
               <div class="campo-formulario">
                 <label for="producto">Tipo de servicio</label>
                 <select id="producto" name="producto" required>
@@ -91,24 +141,31 @@
                   <option value="120">Menú grupo (4-6 personas) - 120 €</option>
                   <option value="300">Evento privado (hasta 20 personas) - 300 €</option>
                 </select>
+                <!-- Dropdown list with service options and associated prices -->
               </div>
+
               <div class="campo-formulario">
                 <label for="plazo">Días de antelación</label>
                 <input type="number" id="plazo" name="plazo" min="1" max="90" value="15" required>
                 <p class="texto-ayuda">A más días de antelación, mayor descuento (5%, 10% o 15%)</p>
+                <!-- Numeric input used to calculate the discount -->
               </div>
             </div>
 
             <fieldset class="grupo-extras">
+              <!-- Group of extra optional services -->
               <legend>Extras</legend>
+
               <label class="linea-checkbox">
                 <input type="checkbox" class="extra" value="20">
                 Botella de vino de la casa (+20 €)
               </label>
+
               <label class="linea-checkbox">
                 <input type="checkbox" class="extra" value="35">
                 Tabla ibérica premium (+35 €)
               </label>
+
               <label class="linea-checkbox">
                 <input type="checkbox" class="extra" value="50">
                 Decoración para celebración (+50 €)
@@ -116,24 +173,30 @@
             </fieldset>
 
             <div class="resumen-presupuesto">
+              <!-- Live budget summary updated by JavaScript -->
               <p>Subtotal: <span id="subtotal">0.00 €</span></p>
               <p>Descuento: <span id="descuento">0.00 €</span></p>
               <p class="total-presupuesto">Total final: <span id="total">0.00 €</span></p>
             </div>
 
             <div class="campo-formulario">
+              <!-- Privacy acceptance checkbox -->
               <label class="linea-checkbox">
                 <input type="checkbox" id="condiciones" required>
                 Acepto la política de privacidad y las condiciones de la reserva
               </label>
               <p class="mensaje-error" id="error-condiciones"></p>
+              <!-- Error message container for conditions acceptance -->
             </div>
 
             <div class="acciones-formulario">
+              <!-- Form action buttons -->
               <button type="submit" class="boton">Enviar solicitud</button>
               <button type="reset" class="boton boton-secundario">Resetear</button>
             </div>
+
             <p id="mensaje-formulario" class="mensaje-formulario"></p>
+            <!-- General success or error message shown after form submission -->
           </div>
         </form>
       </div>
@@ -141,12 +204,18 @@
   </main>
 
   <footer class="footer">
+    <!-- Common footer shown on all pages -->
+
     <div class="contenedor footer-contenido">
+
       <div>
+        <!-- Business information -->
         <h3>El Rincón del Tapeo</h3>
         <p>Calle Mayor 25, Albacete, España</p>
       </div>
+
       <div>
+        <!-- Social media section -->
         <h3>Redes sociales</h3>
         <p class="redes">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -154,10 +223,13 @@
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </p>
       </div>
+
       <div>
+        <!-- Legal information -->
         <h3>Información legal</h3>
         <p>Aviso legal y política de privacidad</p>
       </div>
+
     </div>
   </footer>
 
