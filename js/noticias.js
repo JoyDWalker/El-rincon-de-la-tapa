@@ -5,7 +5,7 @@ function cargarNoticias() {
 
   if (!contenedor) return;
 
-  // Ruta corregida - noticias.json está en la raíz
+  // Corrected path: noticias.json is in the root folder
   fetch("noticias.json")
     .then(function (respuesta) {
       if (!respuesta.ok) {
