@@ -1,32 +1,60 @@
 <!DOCTYPE html>
+<!-- Declares that the document uses HTML5 -->
+
 <html lang="es">
+<!-- Root element of the HTML document, with Spanish as the page language -->
+
 <head>
+  <!-- Basic document metadata -->
   <meta charset="UTF-8">
+  <!-- Sets character encoding to UTF-8 so accents and special characters display correctly -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the layout responsive on mobile devices -->
+
   <title>El Rincón del Tapeo | Inicio</title>
+  <!-- Title shown in the browser tab -->
+
   <meta name="description" content="Bar de tapas español con ambiente acogedor, cocina tradicional y especialidades para compartir.">
-  
-  <!-- CSS - Ruta corregida -->
+  <!-- Short page description for SEO and accessibility -->
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="css/style.css">
-  
-  <!-- Font Awesome -->
+
+  <!-- Font Awesome icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <!-- JavaScript - Ruta corregida -->
+
+  <!-- JavaScript files -->
   <script defer src="js/main.js"></script>
+  <!-- Handles active navigation highlighting -->
+
   <script defer src="js/noticias.js"></script>
+  <!-- Loads news from the external JSON file -->
 </head>
+
 <body>
+  <!-- Visible page content starts here -->
 
   <header class="header">
+    <!-- Main site header -->
+
     <div class="contenedor barra-superior">
+      <!-- Wrapper for logo and navigation -->
+
       <div class="logo">
+        <!-- Site logo -->
         <a href="index.html" aria-label="Ir al inicio">
+          <!-- Clicking the logo returns the user to the home page -->
           <img src="images/logo.png" alt="El Rincón del Tapeo">
+          <!-- Logo image -->
         </a>
       </div>
+
       <nav class="navegacion" aria-label="Principal">
+        <!-- Main navigation menu -->
+
         <ul>
+          <!-- Navigation links -->
           <li><a href="index.html">Inicio</a></li>
           <li><a href="views/galeria.html">Galería</a></li>
           <li><a href="views/presupuesto.html">Presupuesto</a></li>
@@ -37,16 +65,29 @@
   </header>
 
   <main>
+    <!-- Main content area -->
+
     <section class="hero">
+      <!-- Hero section / main visual introduction -->
+
       <div class="contenedor hero-contenido">
         <p class="subtitulo">Sabor, tradición y buen ambiente</p>
+        <!-- Introductory subtitle -->
+
         <h1>Bienvenido a El Rincón del Tapeo</h1>
+        <!-- Main page heading -->
+
         <p>Un bar de tapas español donde cada plato está pensado para compartir, disfrutar y volver.</p>
+        <!-- Short business introduction -->
+
         <a href="views/presupuesto.html" class="boton">Reserva o solicita tu evento</a>
+        <!-- Main call-to-action button -->
       </div>
     </section>
 
     <section class="seccion">
+      <!-- Informational section about the restaurant identity -->
+
       <div class="contenedor">
         <h2>Nuestra esencia</h2>
         <p>En El Rincón del Tapeo combinamos recetas tradicionales, ingredientes de calidad y un ambiente cercano para que cada visita se convierta en una experiencia especial.</p>
@@ -55,18 +96,28 @@
     </section>
 
     <section class="seccion fondo-suave">
+      <!-- Featured specialties section -->
+
       <div class="contenedor">
         <h2>Especialidades de la casa</h2>
+
         <div class="tarjetas">
+          <!-- Card layout for featured dishes -->
+
           <article class="tarjeta">
+            <!-- First featured card -->
             <h3>Patatas bravas</h3>
             <p>Crujientes por fuera, tiernas por dentro y acompañadas de nuestra salsa especial.</p>
           </article>
+
           <article class="tarjeta">
+            <!-- Second featured card -->
             <h3>Croquetas caseras</h3>
             <p>Elaboradas con receta tradicional y textura cremosa, perfectas para compartir.</p>
           </article>
+
           <article class="tarjeta">
+            <!-- Third featured card -->
             <h3>Tortilla española</h3>
             <p>Uno de nuestros clásicos más pedidos, jugosa y servida al momento.</p>
           </article>
@@ -75,6 +126,8 @@
     </section>
 
     <section class="seccion">
+      <!-- Descriptive section about the atmosphere of the place -->
+
       <div class="contenedor">
         <h2>Un lugar para disfrutar</h2>
         <p>Nuestro bar ofrece un ambiente acogedor, decoración tradicional y una atención cercana para que te sientas como en casa desde el primer momento.</p>
@@ -83,22 +136,34 @@
     </section>
 
     <section class="seccion fondo-suave">
+      <!-- Section reserved for dynamically loaded news -->
+
       <div class="contenedor">
         <h2>Noticias y novedades</h2>
+
         <div id="contenedor-noticias" class="contenedor-noticias">
+          <!-- This container will be filled with external news using JavaScript -->
           <p>Cargando noticias...</p>
+          <!-- Temporary message shown while the news is loading -->
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <!-- Common site footer -->
+
     <div class="contenedor footer-contenido">
+      <!-- Footer content wrapper -->
+
       <div>
+        <!-- Business information -->
         <h3>El Rincón del Tapeo</h3>
         <p>Calle Mayor 25, Albacete, España</p>
       </div>
+
       <div>
+        <!-- Social media links -->
         <h3>Redes sociales</h3>
         <p class="redes">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -106,7 +171,9 @@
           <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
         </p>
       </div>
+
       <div>
+        <!-- Legal information -->
         <h3>Información legal</h3>
         <p>Aviso legal y política de privacidad</p>
       </div>
