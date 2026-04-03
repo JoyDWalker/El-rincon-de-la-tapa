@@ -1,9 +1,9 @@
-// Espera a que todo el contenido HTML esté cargado antes de ejecutar el script
+// Wait until all HTML content is loaded before running the script
 document.addEventListener("DOMContentLoaded", function () {
   const formulario = document.getElementById("formulario-presupuesto");
   if (!formulario) return;
 
-  // Referencias a los campos del formulario
+  // References to the form fields
   const nombre = document.getElementById("nombre");
   const apellidos = document.getElementById("apellidos");
   const telefono = document.getElementById("telefono");
@@ -14,16 +14,16 @@ document.addEventListener("DOMContentLoaded", function () {
   const condiciones = document.getElementById("condiciones");
   const mensajeFormulario = document.getElementById("mensaje-formulario");
 
-  // Referencias al resumen
+  // References to the budget summary
   const subtotalElemento = document.getElementById("subtotal");
   const descuentoElemento = document.getElementById("descuento");
   const totalElemento = document.getElementById("total");
 
-  // Expresiones regulares para validar los campos
-  const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{1,15}$/;
-  const regexApellidos = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\s]{1,40}$/;
+  // Regular expressions used to validate the fields
+  const regexNombre = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\\s]{1,15}$/;
+  const regexApellidos = /^[A-Za-zÁÉÍÓÚáéíóúÑñÜü\\s]{1,40}$/;
   const regexTelefono = /^[0-9]{9}$/;
-  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const regexEmail = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
 
   function mostrarError(id, mensaje) {
     document.getElementById(id).textContent = mensaje;
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function validarTelefono() {
-    telefono.value = telefono.value.replace(/\D/g, "").slice(0, 9);
+    telefono.value = telefono.value.replace(/\\D/g, "").slice(0, 9);
     const valor = telefono.value.trim();
 
     if (!regexTelefono.test(valor)) {
