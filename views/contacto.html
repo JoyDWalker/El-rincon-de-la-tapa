@@ -1,39 +1,63 @@
 <!DOCTYPE html>
+<!-- Declares that the document uses HTML5 -->
+
 <html lang="es">
+<!-- Root HTML element, with Spanish set as the page language -->
+
 <head>
+  <!-- Basic page metadata -->
   <meta charset="UTF-8">
+  <!-- Defines UTF-8 encoding so special characters display correctly -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Makes the layout responsive on mobile devices -->
+
   <title>El Rincón del Tapeo | Contacto</title>
+  <!-- Title displayed in the browser tab -->
+
   <meta name="description" content="Contacta con El Rincón del Tapeo y encuentra nuestra ubicación. Calcula la ruta desde tu ubicación.">
-  
-  <!-- CSS - Ruta corregida -->
+  <!-- Short page description for SEO and accessibility -->
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
-  
-  <!-- Font Awesome -->
+
+  <!-- Font Awesome icon library -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  
-  <!-- Leaflet CSS y JS -->
+
+  <!-- Leaflet CSS and JavaScript for the interactive map -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  
-  <!-- Leaflet Routing Machine -->
+
+  <!-- Leaflet Routing Machine for route calculation -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
   <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-  
-  <!-- JavaScript - Rutas corregidas -->
+
+  <!-- Project JavaScript files -->
   <script defer src="../js/main.js"></script>
+  <!-- Handles active menu highlighting -->
+
   <script defer src="../js/contacto.js"></script>
+  <!-- Handles the dynamic map and route calculation -->
 </head>
+
 <body>
+  <!-- Visible content starts here -->
 
   <header class="header">
+    <!-- Main site header -->
+
     <div class="contenedor barra-superior">
+      <!-- Container for logo and navigation -->
+
       <div class="logo">
+        <!-- Site logo linking back to the home page -->
         <a href="../index.html" aria-label="Ir al inicio">
           <img src="../images/logo.png" alt="El Rincón del Tapeo">
         </a>
       </div>
+
       <nav class="navegacion" aria-label="Principal">
+        <!-- Main navigation menu -->
         <ul>
           <li><a href="../index.html">Inicio</a></li>
           <li><a href="galeria.html">Galería</a></li>
@@ -45,47 +69,70 @@
   </header>
 
   <main>
+    <!-- Main page content -->
+
     <section class="hero hero-secundario">
+      <!-- Secondary hero section for the contact page -->
       <div class="contenedor hero-contenido">
         <p class="subtitulo">Estamos cerca de ti</p>
+        <!-- Introductory subtitle -->
+
         <h1>Contacto y localización</h1>
+        <!-- Main heading of the contact page -->
+
         <p>Consulta nuestros datos y encuentra la mejor ruta para llegar.</p>
+        <!-- Short description of the page purpose -->
       </div>
     </section>
 
     <section class="seccion">
+      <!-- Main contact section with text information and map -->
       <div class="contenedor contacto-grid">
+
         <article class="bloque-contacto">
+          <!-- Business contact information -->
           <h2>Información de contacto</h2>
           <p><strong>📍 Dirección:</strong> Calle Mayor 25, 02001 Albacete, España</p>
           <p><strong>📞 Teléfono:</strong> +34 600 123 456</p>
           <p><strong>✉️ Correo:</strong> info@elrincondeltapeo.com</p>
           <p><strong>🕒 Horario:</strong> Lunes a domingo de 12:00 a 00:00</p>
           <p><strong>🍽️ Cocina:</strong> Tradicional española | Tapeo | Eventos</p>
-          
+
           <div class="btn-ruta">
+            <!-- Button used to calculate the route from the user's location -->
             <button id="btn-ruta" class="boton" type="button">
               <i class="fa-solid fa-location-dot"></i> Calcular ruta desde mi ubicación
             </button>
           </div>
+
           <p id="estado-ruta" class="texto-ayuda"></p>
+          <!-- This paragraph will show status messages related to route calculation -->
         </article>
 
         <div class="mapa-contenedor">
+          <!-- Wrapper for the interactive map -->
           <div id="mapa"></div>
+          <!-- Leaflet will render the map inside this element -->
         </div>
+
       </div>
     </section>
   </main>
 
   <footer class="footer">
+    <!-- Common footer used across the site -->
+
     <div class="contenedor footer-contenido">
+
       <div>
+        <!-- Business name and address -->
         <h3>El Rincón del Tapeo</h3>
         <p>Calle Mayor 25, Albacete, España</p>
         <p>📍 Cómo llegar: Usa el mapa para calcular tu ruta</p>
       </div>
+
       <div>
+        <!-- Social media links -->
         <h3>Redes sociales</h3>
         <p class="redes">
           <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
@@ -94,11 +141,14 @@
           <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         </p>
       </div>
+
       <div>
+        <!-- Legal information -->
         <h3>Información legal</h3>
         <p>© 2024 El Rincón del Tapeo</p>
         <p>Aviso legal | Política de privacidad | Condiciones de uso</p>
       </div>
+
     </div>
   </footer>
 
